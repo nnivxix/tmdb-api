@@ -11,7 +11,7 @@ class TvService
     public function trending()
     {
         $response =  $this->http->baseUrl()
-            ->get('/trending/tv/day');
+            ->get("/trending/tv/day");
 
         return $response->json();
     }
