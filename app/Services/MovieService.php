@@ -9,9 +9,7 @@ use App\Services\Interface\MovieServiceInterface;
 
 class MovieService implements MovieServiceInterface
 {
-    protected $tmdbService;
-
-    public function __construct(TMDBService $tmdbService)
+    public function __construct(protected TMDBService $tmdbService)
     {
         $this->tmdbService = $tmdbService;
     }
