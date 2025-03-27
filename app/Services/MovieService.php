@@ -17,10 +17,9 @@ class MovieService implements MovieServiceInterface
 
     public function getPopularMovies(): array
     {
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer ' . $this->tmdbService->apiKey,
-            'accept'        => 'application/json',
-        ])->get($this->tmdbService->baseUrl . '/movie/popular');
+        $response = $this->tmdbService
+            ->baseApiUrl()
+            ->get('/movie/popular');
 
         return $response->json();
     }

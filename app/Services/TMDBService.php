@@ -11,7 +11,15 @@ class TMDBService
         public string $apiKey,
         public string $baseUrl,
     ) {
-        // $this->apiKey = config('movie.api_access_token');
-        // $this->baseUrl = 'https://api.themoviedb.org/3';
+        //
+    }
+
+    public function baseApiUrl()
+    {
+        return Http::withHeaders([
+            'Authorization' => 'Bearer ' . $this->apiKey,
+            'accept'        => 'application/json',
+        ])
+            ->baseUrl($this->baseUrl);
     }
 }
